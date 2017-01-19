@@ -1,12 +1,15 @@
 //backend
 var converter = function(input){
+  if (input > 3999){
+    return input;
+  }else{
   var output =[];
   var length = input.toString().length;
   var inputArray = input.toString().split("");
   for (var j=1; j<=length; j++){
     var digit = input.toString().charAt(j-1);
     var divider = "1"
-    for (var i = 1; i <=j; i++){
+    for (var ind = 1; ind <=length-j; ind++){
       divider = divider.concat("0");
     }
     divider = parseInt(divider);
@@ -15,6 +18,7 @@ var converter = function(input){
     output = output.concat([romanNum]);
   }
   return output.join("")
+  }
 }
 
 
